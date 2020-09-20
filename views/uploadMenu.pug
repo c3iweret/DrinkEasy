@@ -1,0 +1,40 @@
+include mixins/hikecard
+include mixins/nav
+
+head
+    title=title
+
+    link(rel='stylesheet', href='/assets/css/global.css')
+    link(rel='stylesheet' href='/assets/css/reset.css')
+    link(rel='stylesheet' href='/assets/css/menu.css')
+    link(rel='stylesheet' href='/assets/css/nav.css')
+    link(rel='stylesheet' href='/assets/css/hikecard.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js')
+    script(src='/assets/scripts/dashboard.js' type='text/javascript')
+body
+    +navbar()
+
+
+div(class="content")
+        div(class="card-container")
+            br
+            br
+            br
+            br
+            div(id="update-card" )
+                p(id='card-title')
+
+                if alreadySetUp
+                    h2 Reupload your menu below
+                else
+                    h2 First things first, Add your drink menu and complete your profile!
+                br
+                br
+                form(action="/parseMenu" method="POST" enctype='multipart/form-data' id="uploadMenu" name="uploadMenu")
+                    input(type="file" name="file" multiple)
+                    br
+                    br
+                    br
+
+                    input(type="submit" value="Upload")
+                    input(type="reset" value="Reset" )

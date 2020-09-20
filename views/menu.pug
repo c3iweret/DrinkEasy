@@ -1,0 +1,39 @@
+include mixins/drinkcard
+include mixins/nav
+
+head
+    title=title
+
+    link(rel='stylesheet', href='/assets/css/global.css')
+    link(rel='stylesheet' href='/assets/css/reset.css')
+    link(rel='stylesheet' href='/assets/css/menu.css')
+    link(rel='stylesheet' href='/assets/css/nav.css')
+    link(rel='stylesheet' href='/assets/css/drinkcard.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js')
+    script(src='/assets/scripts/menu.js' type='text/javascript')
+body
+    +navbar()
+
+    h2(id='menuTitle') Menu
+
+    div(class='content')
+      br
+      br
+      br
+      br
+      div(class='container')
+          div(class='card-list')
+            div(style='display: flex;')
+              h2(id='menuTitle') Menu
+            div(style='display: flex;')
+              if menu
+                if menu.keepTab
+                  p(class="tabsFlag") This menu allows customers to keep tabs
+                else
+                  p(class="tabsFlag") This menu doesn't allow customers to keep tabs
+
+            if menu
+              each drink in menu.drinks
+                br
+                +drinkcard(drink)
+                br
