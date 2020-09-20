@@ -1,6 +1,9 @@
 # DrinkEasy
 order drinks with a click of a button
 
+## For more information:
+https://devpost.com/software/drinkeasy
+
 
 ### How to run
 
